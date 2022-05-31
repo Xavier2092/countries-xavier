@@ -12,7 +12,7 @@ export const COUNTRY_BY_ACTIVITY = 'COUNTRY_BY_ACTIVITY';
 export function getCountry(){
   return async function (dispatch){
     try{
-        var jsonCountry = await axios.get('http://localhost:3001/api/Country');
+        var jsonCountry = await axios.get('https://api-paises-xavier.herokuapp.com/api/Country');
           return dispatch({
             type: "GET_COUNTRY",
             payload: jsonCountry.data
@@ -26,7 +26,7 @@ export function getCountry(){
 export function getCountryName(name){
   return async function (dispatch){
     try{
-        var jsonName = await axios.get('http://localhost:3001/api/Country?name=' + name);
+        var jsonName = await axios.get('https://api-paises-xavier.herokuapp.com/api/Country?name=' + name);
           return dispatch({
             type: "GET_COUNTRY_NAME",
             payload: jsonName.data
@@ -41,7 +41,7 @@ export function getCountryName(name){
 export function getDetails(id){
   return async function(dispatch){
     try{
-        var jsonDetail = await axios.get('http://localhost:3001/api/Country/' + id);
+        var jsonDetail = await axios.get('https://api-paises-xavier.herokuapp.com/api/Country/' + id);
           return dispatch({
             type: GET_DETAILS,
             payload: jsonDetail.data
@@ -76,7 +76,7 @@ export function filterCountryByPopulation(payload){
 export function getOnlyCountries(){
   return async function(dispatch){
     try{
-      var jsonOnlyCountry = await axios.get('http://localhost:3001/api/AllCountries');
+      var jsonOnlyCountry = await axios.get('https://api-paises-xavier.herokuapp.com/api/AllCountries');
         return dispatch({
             type: "GET_ONLY_COUNTRIES",
             payload: jsonOnlyCountry.data
@@ -90,7 +90,7 @@ export function getOnlyCountries(){
 export function postTourActivity(payload){
   console.log("ActionPay " + payload);
   return async function (dispatch){
-    const actTour = await axios.post('http://localhost:3001/api/TourActivity', payload);
+    const actTour = await axios.post('https://api-paises-xavier.herokuapp.com/api/TourActivity', payload);
     return actTour;
   }
 }
@@ -98,7 +98,7 @@ export function postTourActivity(payload){
 export function getTourActivity(){
   return async function(dispatch){
     try{
-      const jsonActTour = await axios.get('http://localhost:3001/api/TourActivity');
+      const jsonActTour = await axios.get('https://api-paises-xavier.herokuapp.com/api/TourActivity');
         return dispatch({
           type: "GET_TOUR_ACTIVITY",
           payload: jsonActTour.data
